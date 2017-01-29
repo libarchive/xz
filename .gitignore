@@ -64,3 +64,5 @@ build-aux/test-driver
 /src/liblzma/api/Makefile
 /src/lzmainfo/Makefile
 /src/xzdec/Makefile
+build/
+windows/.vs/
