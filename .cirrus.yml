@@ -1,0 +1,27 @@
+env:
+  CIRRUS_CLONE_DEPTH: 1
+  ARCH: amd64
+
+FreeBSD_task:
+  matrix:
+    env:
+      BS: autotools
+    env:
+      BS: cmake
+  matrix:
+    freebsd_instance:
+      image_family: freebsd-13-2
+    freebsd_instance:
+      image_family: freebsd-12-4
+  prepare_script:
+  - ./ci/cirrus_ci/freebsd.sh
+  autogen_script:
+  - ./ci/ci.sh -a autogen
+  configure_script:
+  - ./ci/ci.sh -a configure
+  build_script:
+  - ./ci/ci.sh -a build
+  test_script:
+  - ./ci/ci.sh -a test
+  install_script:
+  - ./ci/ci.sh -a install
